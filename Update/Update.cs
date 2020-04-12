@@ -13,6 +13,7 @@ namespace Update
 {
     public partial class Update : Form
     {
+        string _UpdateType;
         public Update()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace Update
 
         public Update(string updateType) : base()
         {
-            MessageBox.Show(updateType);
+            _UpdateType = updateType;
         }
 
         private void btnCloseMainProcess_Click(object sender, EventArgs e)
@@ -55,7 +56,10 @@ namespace Update
         {
             //经过Ftp将安装包下载至安装路径（如果有旧的注意覆盖）
             //然后启动安装包覆盖安装
-            Process.Start(Application.StartupPath + "\\SetUp.exe").Dispose();
+            if (string.IsNullOrEmpty(_UpdateType)||_UpdateType =="0")
+            {
+                Process.Start(Application.StartupPath + "\\..\\SetUp.exe").Dispose();
+            }
         }
     }
 }

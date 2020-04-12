@@ -18,9 +18,14 @@ namespace Update
             Application.SetCompatibleTextRenderingDefault(false);
             if (args.Length>0)
             {
-                MessageBox.Show(args[0]);
+                Application.Run(new Update(args[0]));
             }
-            Application.Run(new Update());
+            else
+            {
+                Application.Run(new Update());
+
+            }
+
         }
     }
 }
