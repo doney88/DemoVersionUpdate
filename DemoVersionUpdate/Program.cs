@@ -31,6 +31,8 @@ namespace DemoVersionUpdate
                 if (MessageBox.Show($"发现新版本！是否更新？ \r\n当前版本{currentVersion} \r\n最新版本{serverVersion}","版本更新",MessageBoxButtons.YesNo)== DialogResult.Yes)
                 {
                     //异步打开下载程序
+                    //解压下载的安装包
+                    //运行安装包
                     Process.Start(Application.StartupPath + "\\Update\\Update.exe",updateType).Dispose();
                     return;
                 }
